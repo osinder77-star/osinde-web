@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osinde | Senior Security Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
+        :root {
+            --bg-primary: #faf9f6;
+            --text-main: #1a1a1a;
+            --accent: #5e5e5e;
+            --soft-border: #e5e1da;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .serif { font-family: 'Instrument Serif', serif; }
+
+        .nav-blur {
+            background-color: rgba(250, 249, 246, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .skill-tag {
+            border: 1px solid var(--soft-border);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+        }
+
+        .hover-underline {
+            position: relative;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .hover-underline:hover::after {
+            width: 100%;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white">
+
+    <!-- Header -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-[#e5e1da] px-6 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tighter uppercase">
+                Osinde<span class="text-neutral-400">.</span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-[#666]">
+                <a href="#about" class="hover:text-black hover-underline transition-all">About</a>
+                <a href="#expertise" class="hover:text-black hover-underline transition-all">Expertise</a>
+                <a href="#work" class="hover:text-black hover-underline transition-all">Case Studies</a>
+                <a href="#contact" class="hover:text-black hover-underline transition-all">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:block text-[11px] font-bold uppercase tracking-[0.2em] bg-black text-white px-6 py-2 rounded-full hover:bg-neutral-800 transition-all">
+                Hire Me
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center pt-24 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 reveal">
+                <p class="text-[11px] font-bold tracking-[0.4em] uppercase text-[#888] mb-6">Established 2018 — Security Researcher</p>
+                <h1 class="text-7xl md:text-[120px] leading-[0.85] serif font-normal mb-10">
+                    Defending the <br> <span class="italic">Invisible</span> Web.
+                </h1>
+                <p class="text-xl text-[#555] mb-12 max-w-lg leading-relaxed font-light">
+                    An ethical hacker and security architect dedicated to strengthening the world's digital infrastructure through rigorous analysis and human-centered defense.
+                </p>
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="#work" class="bg-black text-white px-10 py-5 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-neutral-800 transition-all">
+                        View Portfolio
+                    </a>
+                    <div class="flex items-center space-x-4">
+                        <span class="w-12 h-px bg-neutral-300"></span>
+                        <div class="flex space-x-4 text-sm font-bold uppercase tracking-widest text-[#888]">
+                            <a href="#" class="hover:text-black transition-colors">GH</a>
+                            <a href="#" class="hover:text-black transition-colors">LN</a>
+                            <a href="#" class="hover:text-black transition-colors">TW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-5 relative reveal" style="transition-delay: 200ms;">
+                <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
+                    <img src="image_1ce2b1.jpg" alt="Osinde" class="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop'">
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#f0eee9] rounded-full flex items-center justify-center border border-[#e5e1da] hidden lg:flex">
+                    <div class="text-center">
+                        <p class="text-2xl serif italic">6+</p>
+                        <p class="text-[9px] font-bold uppercase tracking-widest">Years exp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="py-20 border-y border-[#e5e1da] bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div class="reveal">
+                <h3 class="text-4xl serif mb-2 italic">120+</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Servers Audited</p>
+            </div>
+            <div class="reveal" style="transition-delay: 100ms;">
+                <h3 class="text-4xl serif mb-2 italic">45+</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Vulns Discovered</p>
+            </div>
+            <div class="reveal" style="transition-delay: 200ms;">
+                <h3 class="text-4xl serif mb-2 italic">12</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Certifications</p>
+            </div>
+            <div class="reveal" style="transition-delay: 300ms;">
+                <h3 class="text-4xl serif mb-2 italic">100%</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Detailed -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-start">
+                <div class="reveal">
+                    <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-[#888] mb-8">The Philosophy</h2>
+                    <p class="text-4xl serif leading-[1.1] mb-12">
+                        "In an era of rapid automation, <span class="italic underline decoration-neutral-200 underline-offset-8">human intuition</span> remains the most powerful tool in the security arsenal."
+                    </p>
+                    <div class="space-y-6 text-neutral-600 leading-relaxed font-light">
+                        <p>Osinde bridges the gap between sophisticated technical architecture and practical business resilience. Starting her journey as a network enthusiast, she quickly pivoted to the offensive side of security, believing that to protect a system, one must first understand how to dismantle it.</p>
+                        <p>Today, she consults for high-growth startups and established firms, ensuring their digital assets are shielded against evolving threats while maintaining operational agility.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" class="rounded-2xl aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Tech">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600" class="rounded-2xl aspect-[3/4] object-cover mt-12 grayscale hover:grayscale-0 transition-all duration-700" alt="Data">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="py-32 px-6 bg-white border-y border-[#e5e1da]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-7xl serif italic mb-4">Core Expertise</h2>
+                    <p class="text-neutral-500 uppercase tracking-widest text-[10px] font-bold">Specialized Security Disciplines</p>
+                </div>
+                <div class="reveal md:text-right max-w-sm">
+                    <p class="text-sm text-neutral-600 italic">Continuously evolving with the landscape to provide cutting-edge defense strategies.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div class="reveal group">
+                    <div class="h-px w-full bg-neutral-200 mb-10 group-hover:bg-black transition-colors"></div>
+                    <h3 class="text-2xl serif mb-6">Pentesting & Offense</h3>
+                    <p class="text-sm text-[#666] mb-8 leading-relaxed">Full-spectrum offensive operations. From social engineering to deep binary exploitation and web application auditing.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Red Teaming</span>
+                        <span class="skill-tag">Metasploit</span>
+                        <span class="skill-tag">Burp Pro</span>
+                    </div>
+                </div>
+                <div class="reveal group" style="transition-delay: 100ms;">
+                    <div class="h-px w-full bg-neutral-200 mb-10 group-hover:bg-black transition-colors"></div>
+                    <h3 class="text-2xl serif mb-6">Cloud Infrastructure</h3>
+                    <p class="text-sm text-[#666] mb-8 leading-relaxed">Securing modern cloud-native environments. Expertise in zero-trust architecture and automated compliance auditing.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">AWS Security</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">K8s</span>
+                    </div>
+                </div>
+                <div class="reveal group" style="transition-delay: 200ms;">
+                    <div class="h-px w-full bg-neutral-200 mb-10 group-hover:bg-black transition-colors"></div>
+                    <h3 class="text-2xl serif mb-6">Strategy & Privacy</h3>
+                    <p class="text-sm text-[#666] mb-8 leading-relaxed">Guiding leadership through the complex web of privacy laws and security governance (GDPR, ISO 27001).</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Compliance</span>
+                        <span class="skill-tag">GRC</span>
+                        <span class="skill-tag">Risk Mgmt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Gallery / More Images -->
+    <section class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-center text-xs font-bold tracking-[0.3em] uppercase text-[#888] mb-20">The Research Lab</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="reveal"><img src="https://images.unsplash.com/photo-1510511459019-5dee997dd1db?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all" alt="Monitor"></div>
+                <div class="reveal" style="transition-delay: 100ms;"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all mt-8" alt="Code"></div>
+                <div class="reveal" style="transition-delay: 200ms;"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all" alt="Cyber"></div>
+                <div class="reveal" style="transition-delay: 300ms;"><img src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all mt-8" alt="Hardware"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies / Work -->
+    <section id="work" class="py-32 px-6 bg-[#f0eee9]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-24">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-7xl serif italic">Case Studies</h2>
+                </div>
+                <div class="reveal">
+                    <a href="#" class="text-[11px] font-bold uppercase tracking-[0.2em] hover-underline">All Artifacts</a>
+                </div>
+            </div>
+
+            <div class="space-y-32">
+                <!-- Large Project -->
+                <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+                    <div class="project-card rounded-3xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e7de?auto=format&fit=crop&q=80&w=1200" class="w-full aspect-square md:aspect-video object-cover" alt="Project">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4 block">01 / FinTech Audit</span>
+                        <h3 class="text-4xl serif mb-6 italic">SecurePay Infrastructure Hardening</h3>
+                        <p class="text-neutral-600 leading-relaxed mb-8">A comprehensive overhaul of a payment processor's cloud environment, reducing the attack surface by 70% and achieving PCI-DSS compliance in record time.</p>
+                        <ul class="space-y-2 mb-10 text-sm font-medium italic">
+                            <li>— Zero Trust Implementation</li>
+                            <li>— Real-time Threat Monitoring</li>
+                            <li>— Employee Awareness Training</li>
+                        </ul>
+                        <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] border-b border-black pb-2 hover:text-neutral-500 transition-colors">Case Details →</a>
+                    </div>
+                </div>
+
+                <!-- Large Project 2 -->
+                <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+                    <div class="md:order-2 project-card rounded-3xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200" class="w-full aspect-square md:aspect-video object-cover" alt="Project">
+                    </div>
+                    <div class="md:order-1 md:text-right">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4 block">02 / Open Source</span>
+                        <h3 class="text-4xl serif mb-6 italic">Project ShadowGate</h3>
+                        <p class="text-neutral-600 leading-relaxed mb-8">An automated OSINT tool designed to help small businesses identify leaked credentials and insecure endpoints before they are exploited.</p>
+                        <ul class="space-y-2 mb-10 text-sm font-medium italic md:flex md:space-x-8 md:space-y-0 md:justify-end">
+                            <li>— Automated OSINT</li>
+                            <li>— Python/Go</li>
+                            <li>— 2.5k GitHub Stars</li>
+                        </ul>
+                        <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] border-b border-black pb-2 hover:text-neutral-500 transition-colors">View Source →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <div class="mb-12">
+                <i class="fas fa-quote-left text-4xl text-neutral-100"></i>
+            </div>
+            <p class="text-3xl serif italic leading-snug mb-12">
+                "Osinde doesn't just find holes; she builds the solution. Her ability to explain complex vulnerabilities to our executive board was exactly what we needed to get our budget approved."
+            </p>
+            <div>
+                <p class="text-xs font-bold uppercase tracking-widest">Marcus Thorne</p>
+                <p class="text-[10px] text-neutral-400 uppercase tracking-widest mt-1">CTO, Vertex Solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-32 px-6 border-t border-[#e5e1da]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-start">
+            <div class="reveal">
+                <h2 class="text-6xl md:text-8xl serif italic mb-10 leading-[0.85]">Let's build a <br> <span class="text-neutral-300">safer</span> web.</h2>
+                <div class="space-y-8 mt-16">
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">Direct Inquiry</p>
+                        <a href="mailto:hello@osinde.com" class="text-2xl serif hover:text-neutral-500 transition-colors italic">hello@osinde.security</a>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">Location</p>
+                        <p class="text-xl serif italic">Remote / Oslo, Norway</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay: 200ms;">
+                <form class="space-y-10" onsubmit="event.preventDefault();">
+                    <div class="group relative">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 absolute -top-6 left-0 transition-all group-focus-within:text-black">Your Identity</label>
+                        <input type="text" placeholder="Full Name" class="w-full bg-transparent border-b border-[#ccc] py-4 focus:border-black outline-none transition-all placeholder:text-neutral-300">
+                    </div>
+                    <div class="group relative">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 absolute -top-6 left-0 transition-all group-focus-within:text-black">The Subject</label>
+                        <select class="w-full bg-transparent border-b border-[#ccc] py-4 focus:border-black outline-none transition-all text-neutral-400">
+                            <option>Penetration Testing</option>
+                            <option>Security Consulting</option>
+                            <option>Speaking Engagement</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="group relative">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 absolute -top-6 left-0 transition-all group-focus-within:text-black">Message Details</label>
+                        <textarea rows="4" placeholder="How can I assist your mission?" class="w-full bg-transparent border-b border-[#ccc] py-4 focus:border-black outline-none transition-all placeholder:text-neutral-300"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-black text-white py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-neutral-800 transition-all shadow-lg">
+                        Dispatch Secure Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-[#e5e1da] bg-white text-center">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] gap-8">
+            <p>© 2024 Osinde Studio. All Rights Reserved.</p>
+            <div class="flex space-x-8">
+                <a href="#" class="hover:text-black">GH</a>
+                <a href="#" class="hover:text-black">TW</a>
+                <a href="#" class="hover:text-black">LN</a>
+                <a href="#" class="hover:text-black">IG</a>
+            </div>
+            <p>Encrypted via PGP</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const reveal = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', reveal);
+        // Trigger once on load
+        window.addEventListener('load', reveal);
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osinde | Senior Security Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
+        :root {
+            --bg-primary: #faf9f6;
+            --text-main: #1a1a1a;
+            --accent: #5e5e5e;
+            --soft-border: #e5e1da;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .serif { font-family: 'Instrument Serif', serif; }
+
+        .nav-blur {
+            background-color: rgba(250, 249, 246, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        .skill-tag {
+            border: 1px solid var(--soft-border);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-card {
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+        }
+
+        .hover-underline {
+            position: relative;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .hover-underline:hover::after {
+            width: 100%;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 10px; }
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white">
+
+    <!-- Header -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-[#e5e1da] px-6 py-5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tighter uppercase">
+                Osinde<span class="text-neutral-400">.</span>
+            </div>
+            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-[#666]">
+                <a href="#about" class="hover:text-black hover-underline transition-all">About</a>
+                <a href="#expertise" class="hover:text-black hover-underline transition-all">Expertise</a>
+                <a href="#work" class="hover:text-black hover-underline transition-all">Case Studies</a>
+                <a href="#contact" class="hover:text-black hover-underline transition-all">Contact</a>
+            </div>
+            <a href="#contact" class="hidden md:block text-[11px] font-bold uppercase tracking-[0.2em] bg-black text-white px-6 py-2 rounded-full hover:bg-neutral-800 transition-all">
+                Hire Me
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center pt-24 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 reveal">
+                <p class="text-[11px] font-bold tracking-[0.4em] uppercase text-[#888] mb-6">Established 2018 — Security Researcher</p>
+                <h1 class="text-7xl md:text-[120px] leading-[0.85] serif font-normal mb-10">
+                    Defending the <br> <span class="italic">Invisible</span> Web.
+                </h1>
+                <p class="text-xl text-[#555] mb-12 max-w-lg leading-relaxed font-light">
+                    An ethical hacker and security architect dedicated to strengthening the world's digital infrastructure through rigorous analysis and human-centered defense.
+                </p>
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="#work" class="bg-black text-white px-10 py-5 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-neutral-800 transition-all">
+                        View Portfolio
+                    </a>
+                    <div class="flex items-center space-x-4">
+                        <span class="w-12 h-px bg-neutral-300"></span>
+                        <div class="flex space-x-4 text-sm font-bold uppercase tracking-widest text-[#888]">
+                            <a href="#" class="hover:text-black transition-colors">GH</a>
+                            <a href="#" class="hover:text-black transition-colors">LN</a>
+                            <a href="#" class="hover:text-black transition-colors">TW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-5 relative reveal" style="transition-delay: 200ms;">
+                <div class="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
+                    <img src="image_1ce2b1.jpg" alt="Osinde" class="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop'">
+                </div>
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-[#f0eee9] rounded-full flex items-center justify-center border border-[#e5e1da] hidden lg:flex">
+                    <div class="text-center">
+                        <p class="text-2xl serif italic">6+</p>
+                        <p class="text-[9px] font-bold uppercase tracking-widest">Years exp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="py-20 border-y border-[#e5e1da] bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+            <div class="reveal">
+                <h3 class="text-4xl serif mb-2 italic">120+</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Servers Audited</p>
+            </div>
+            <div class="reveal" style="transition-delay: 100ms;">
+                <h3 class="text-4xl serif mb-2 italic">45+</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Vulns Discovered</p>
+            </div>
+            <div class="reveal" style="transition-delay: 200ms;">
+                <h3 class="text-4xl serif mb-2 italic">12</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Certifications</p>
+            </div>
+            <div class="reveal" style="transition-delay: 300ms;">
+                <h3 class="text-4xl serif mb-2 italic">100%</h3>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Detailed -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-start">
+                <div class="reveal">
+                    <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-[#888] mb-8">The Philosophy</h2>
+                    <p class="text-4xl serif leading-[1.1] mb-12">
+                        "In an era of rapid automation, <span class="italic underline decoration-neutral-200 underline-offset-8">human intuition</span> remains the most powerful tool in the security arsenal."
+                    </p>
+                    <div class="space-y-6 text-neutral-600 leading-relaxed font-light">
+                        <p>Osinde bridges the gap between sophisticated technical architecture and practical business resilience. Starting her journey as a network enthusiast, she quickly pivoted to the offensive side of security, believing that to protect a system, one must first understand how to dismantle it.</p>
+                        <p>Today, she consults for high-growth startups and established firms, ensuring their digital assets are shielded against evolving threats while maintaining operational agility.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 reveal" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" class="rounded-2xl aspect-[3/4] object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Tech">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600" class="rounded-2xl aspect-[3/4] object-cover mt-12 grayscale hover:grayscale-0 transition-all duration-700" alt="Data">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="py-32 px-6 bg-white border-y border-[#e5e1da]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-7xl serif italic mb-4">Core Expertise</h2>
+                    <p class="text-neutral-500 uppercase tracking-widest text-[10px] font-bold">Specialized Security Disciplines</p>
+                </div>
+                <div class="reveal md:text-right max-w-sm">
+                    <p class="text-sm text-neutral-600 italic">Continuously evolving with the landscape to provide cutting-edge defense strategies.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <div class="reveal group">
+                    <div class="h-px w-full bg-neutral-200 mb-10 group-hover:bg-black transition-colors"></div>
+                    <h3 class="text-2xl serif mb-6">Pentesting & Offense</h3>
+                    <p class="text-sm text-[#666] mb-8 leading-relaxed">Full-spectrum offensive operations. From social engineering to deep binary exploitation and web application auditing.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Red Teaming</span>
+                        <span class="skill-tag">Metasploit</span>
+                        <span class="skill-tag">Burp Pro</span>
+                    </div>
+                </div>
+                <div class="reveal group" style="transition-delay: 100ms;">
+                    <div class="h-px w-full bg-neutral-200 mb-10 group-hover:bg-black transition-colors"></div>
+                    <h3 class="text-2xl serif mb-6">Cloud Infrastructure</h3>
+                    <p class="text-sm text-[#666] mb-8 leading-relaxed">Securing modern cloud-native environments. Expertise in zero-trust architecture and automated compliance auditing.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">AWS Security</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">K8s</span>
+                    </div>
+                </div>
+                <div class="reveal group" style="transition-delay: 200ms;">
+                    <div class="h-px w-full bg-neutral-200 mb-10 group-hover:bg-black transition-colors"></div>
+                    <h3 class="text-2xl serif mb-6">Strategy & Privacy</h3>
+                    <p class="text-sm text-[#666] mb-8 leading-relaxed">Guiding leadership through the complex web of privacy laws and security governance (GDPR, ISO 27001).</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Compliance</span>
+                        <span class="skill-tag">GRC</span>
+                        <span class="skill-tag">Risk Mgmt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Gallery / More Images -->
+    <section class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-center text-xs font-bold tracking-[0.3em] uppercase text-[#888] mb-20">The Research Lab</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="reveal"><img src="https://images.unsplash.com/photo-1510511459019-5dee997dd1db?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all" alt="Monitor"></div>
+                <div class="reveal" style="transition-delay: 100ms;"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all mt-8" alt="Code"></div>
+                <div class="reveal" style="transition-delay: 200ms;"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all" alt="Cyber"></div>
+                <div class="reveal" style="transition-delay: 300ms;"><img src="https://images.unsplash.com/photo-1551739440-5dd934d3a94a?auto=format&fit=crop&q=80&w=600" class="w-full h-80 object-cover rounded-2xl grayscale hover:grayscale-0 transition-all mt-8" alt="Hardware"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies / Work -->
+    <section id="work" class="py-32 px-6 bg-[#f0eee9]">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-24">
+                <div class="reveal">
+                    <h2 class="text-5xl md:text-7xl serif italic">Case Studies</h2>
+                </div>
+                <div class="reveal">
+                    <a href="#" class="text-[11px] font-bold uppercase tracking-[0.2em] hover-underline">All Artifacts</a>
+                </div>
+            </div>
+
+            <div class="space-y-32">
+                <!-- Large Project -->
+                <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+                    <div class="project-card rounded-3xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e7de?auto=format&fit=crop&q=80&w=1200" class="w-full aspect-square md:aspect-video object-cover" alt="Project">
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4 block">01 / FinTech Audit</span>
+                        <h3 class="text-4xl serif mb-6 italic">SecurePay Infrastructure Hardening</h3>
+                        <p class="text-neutral-600 leading-relaxed mb-8">A comprehensive overhaul of a payment processor's cloud environment, reducing the attack surface by 70% and achieving PCI-DSS compliance in record time.</p>
+                        <ul class="space-y-2 mb-10 text-sm font-medium italic">
+                            <li>— Zero Trust Implementation</li>
+                            <li>— Real-time Threat Monitoring</li>
+                            <li>— Employee Awareness Training</li>
+                        </ul>
+                        <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] border-b border-black pb-2 hover:text-neutral-500 transition-colors">Case Details →</a>
+                    </div>
+                </div>
+
+                <!-- Large Project 2 -->
+                <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+                    <div class="md:order-2 project-card rounded-3xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1200" class="w-full aspect-square md:aspect-video object-cover" alt="Project">
+                    </div>
+                    <div class="md:order-1 md:text-right">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-4 block">02 / Open Source</span>
+                        <h3 class="text-4xl serif mb-6 italic">Project ShadowGate</h3>
+                        <p class="text-neutral-600 leading-relaxed mb-8">An automated OSINT tool designed to help small businesses identify leaked credentials and insecure endpoints before they are exploited.</p>
+                        <ul class="space-y-2 mb-10 text-sm font-medium italic md:flex md:space-x-8 md:space-y-0 md:justify-end">
+                            <li>— Automated OSINT</li>
+                            <li>— Python/Go</li>
+                            <li>— 2.5k GitHub Stars</li>
+                        </ul>
+                        <a href="#" class="text-xs font-bold uppercase tracking-[0.2em] border-b border-black pb-2 hover:text-neutral-500 transition-colors">View Source →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-32 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <div class="mb-12">
+                <i class="fas fa-quote-left text-4xl text-neutral-100"></i>
+            </div>
+            <p class="text-3xl serif italic leading-snug mb-12">
+                "Osinde doesn't just find holes; she builds the solution. Her ability to explain complex vulnerabilities to our executive board was exactly what we needed to get our budget approved."
+            </p>
+            <div>
+                <p class="text-xs font-bold uppercase tracking-widest">Marcus Thorne</p>
+                <p class="text-[10px] text-neutral-400 uppercase tracking-widest mt-1">CTO, Vertex Solutions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-32 px-6 border-t border-[#e5e1da]">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-start">
+            <div class="reveal">
+                <h2 class="text-6xl md:text-8xl serif italic mb-10 leading-[0.85]">Let's build a <br> <span class="text-neutral-300">safer</span> web.</h2>
+                <div class="space-y-8 mt-16">
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">Direct Inquiry</p>
+                        <a href="mailto:hello@osinde.com" class="text-2xl serif hover:text-neutral-500 transition-colors italic">hello@osinde.security</a>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">Location</p>
+                        <p class="text-xl serif italic">Remote / Oslo, Norway</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal" style="transition-delay: 200ms;">
+                <form class="space-y-10" onsubmit="event.preventDefault();">
+                    <div class="group relative">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 absolute -top-6 left-0 transition-all group-focus-within:text-black">Your Identity</label>
+                        <input type="text" placeholder="Full Name" class="w-full bg-transparent border-b border-[#ccc] py-4 focus:border-black outline-none transition-all placeholder:text-neutral-300">
+                    </div>
+                    <div class="group relative">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 absolute -top-6 left-0 transition-all group-focus-within:text-black">The Subject</label>
+                        <select class="w-full bg-transparent border-b border-[#ccc] py-4 focus:border-black outline-none transition-all text-neutral-400">
+                            <option>Penetration Testing</option>
+                            <option>Security Consulting</option>
+                            <option>Speaking Engagement</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="group relative">
+                        <label class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 absolute -top-6 left-0 transition-all group-focus-within:text-black">Message Details</label>
+                        <textarea rows="4" placeholder="How can I assist your mission?" class="w-full bg-transparent border-b border-[#ccc] py-4 focus:border-black outline-none transition-all placeholder:text-neutral-300"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-black text-white py-6 rounded-full font-bold uppercase tracking-[0.3em] text-[10px] hover:bg-neutral-800 transition-all shadow-lg">
+                        Dispatch Secure Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-[#e5e1da] bg-white text-center">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-[0.2em] text-[#888] gap-8">
+            <p>© 2024 Osinde Studio. All Rights Reserved.</p>
+            <div class="flex space-x-8">
+                <a href="#" class="hover:text-black">GH</a>
+                <a href="#" class="hover:text-black">TW</a>
+                <a href="#" class="hover:text-black">LN</a>
+                <a href="#" class="hover:text-black">IG</a>
+            </div>
+            <p>Encrypted via PGP</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const reveal = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', reveal);
+        // Trigger once on load
+        window.addEventListener('load', reveal);
+    </script>
+</body>
+</html>
